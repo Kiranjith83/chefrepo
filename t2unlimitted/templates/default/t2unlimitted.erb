@@ -8,4 +8,4 @@ echo "REGION: ${REGION}"
 echo "SPECIFICATIONS_JSON: ${SPECIFICATIONS_JSON}"
 aws --region ${REGION} ec2 describe-instance-credit-specifications --instance-id ${INSTANCE_ID}
 aws --region ${REGION} ec2 modify-instance-credit-specification --instance-credit-specification "${SPECIFICATIONS_JSON}"
-aws --region ${REGION} ec2 describe-instance-credit-specifications --instance-id ${INSTANCE_ID} &> <% @location -%>
+aws --region ${REGION} ec2 describe-instance-credit-specifications --instance-id ${INSTANCE_ID} &> <%= @location %>
