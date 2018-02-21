@@ -24,13 +24,3 @@ end
 execute 'configure_t2unlimitted' do
   command '/bin/bash /home/ec2-user/t2.unlimitted.sh'
 end
-
-ruby_block "Results" do
-    only_if { ::File.exists?(results) }
-    block do
-        print "\n"
-        File.open(results).each do |line|
-            print line
-        end
-    end
-end
