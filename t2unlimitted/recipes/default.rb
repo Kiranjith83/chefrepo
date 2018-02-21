@@ -16,7 +16,9 @@ template '/home/ec2-user/t2.unlimitted.sh' do
   owner 'root'
   group 'root'
   mode '0755'
-  variables (location: node['t2unlimitted']['status'])
+  variables(
+    :location => node['t2unlimitted']['status']
+  )
 end
 
 execute 'configure_t2unlimitted' do
