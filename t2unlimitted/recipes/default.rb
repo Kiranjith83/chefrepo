@@ -5,9 +5,9 @@
 # Copyright:: 2018, The Authors, All Rights Reserved.
 #
 
-bash 'extract_module' do
+bash 'setup_t2.unlimitted' do
   code <<-EOH
-          yum update aws-cli -y
+          sudo yum update aws-cli -y
           INSTANCE_ID=`curl http://169.254.169.254/latest/meta-data/instance-id`
           REGION=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed -e 's/.$//'`
           SPECIFICATIONS_JSON="[{\"InstanceId\": \"${INSTANCE_ID}\",\"CpuCredits\": \"unlimited\"}]"
