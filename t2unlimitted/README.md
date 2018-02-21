@@ -1,4 +1,3 @@
 # t2unlimitted
 
-TODO: Enter the cookbook description here.
-
+TODO: Make sure that the instance has IAM role to execute the CLI commands
