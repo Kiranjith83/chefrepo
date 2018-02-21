@@ -6,7 +6,6 @@
 #
 
 bash 'extract_module' do
-  cwd ::File.dirname(src_filepath)
   code <<-EOH
           yum update aws-cli -y
           INSTANCE_ID=`curl http://169.254.169.254/latest/meta-data/instance-id`
