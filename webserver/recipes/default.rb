@@ -5,7 +5,7 @@
 # Copyright:: 2018, The Authors, All Rights Reserved.
 #
 
-package 'Install Apache' do
+package 'httpd' do
   case node[:platform]
   when 'redhat', 'centos'
     package_name 'httpd'
