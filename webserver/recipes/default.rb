@@ -9,7 +9,6 @@ package 'httpd'
 
 
 instance = search("aws_opsworks_instance", "self:true").first
-hostname1 = #{instance['hostname']}
 Chef::Log.info("********** For instance '#{instance['instance_id']}', the instance's operating system is '#{instance['os']}' **********  the instance's HOSTNAME  is '#{instance['hostname']}'  ")
 
 template '/var/www/html/index.html' do
@@ -19,7 +18,7 @@ template '/var/www/html/index.html' do
   variables(
    :motd => "this is the message mate!",
    :myenvars => "#{node[:testing][:att1]}",
-   :myhostname => hostname1
+   :myhostname => "#{instance[:hostname]}"
 )
 end
 
