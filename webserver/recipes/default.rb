@@ -7,13 +7,19 @@
 
 package 'httpd'
 
+
+instance = search("aws_opsworks_instance", "self:true").first
+hostname1 = #{instance['hostname']}
+Chef::Log.info("********** For instance '#{instance['instance_id']}', the instance's operating system is '#{instance['os']}' **********  the instance's HOSTNAME  is '#{instance['hostname']}'  ")
+
 template '/var/www/html/index.html' do
   source 'index.html.erb'
   mode '0755'
   owner 'root'
   variables(
    :motd => "this is the message mate!",
-   :myenvars => "#{node[:testing][:att1]}"
+   :myenvars => "#{node[:testing][:att1]}",
+   :myhostname => hostname1
 )
 end
 
@@ -21,6 +27,3 @@ service "httpd" do
   action :restart
 end
 
-
-instance = search("aws_opsworks_instance", "self:true").first
-Chef::Log.info("********** For instance '#{instance['instance_id']}', the instance's operating system is '#{instance['os']}' **********  the instance's HOSTNAME  is '#{instance['hostname']}'  ")
