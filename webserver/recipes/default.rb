@@ -20,3 +20,7 @@ end
 service "httpd" do
   action :restart
 end
+
+
+instance = search("aws_opsworks_instance", "self:true").first
+Chef::Log.info("********** For instance '#{instance['instance_id']}', the instance's operating system is '#{instance['os']}' **********  the instance's HOSTNAME  is '#{instance['hostname']}'  ")
