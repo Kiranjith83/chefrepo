@@ -13,7 +13,7 @@ template '/var/www/html/index.html' do
   owner 'root'
   variables(
    :motd => "this is the message mate!",
-   :myenvars => "#{deploy[:environment_variables]}"
+   :myenvars => "#{node[:testing][:att1]}"
 )
 end
 
