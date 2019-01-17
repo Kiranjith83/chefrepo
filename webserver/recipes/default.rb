@@ -6,6 +6,7 @@
 #
 
 package 'httpd'
+end
 
 
 instance = search("aws_opsworks_instance", "self:true").first
