@@ -17,7 +17,7 @@ template '/var/www/html/index.html' do
   owner 'root'
   variables(
    :motd => "this is the message mate!",
-   :myenvars => "#{node[:testing][:att1]}",
+   :myenvars => "#{node[:testing][:attl]}",
    :myhostname => "#{instance[:hostname]}"
 )
 end
